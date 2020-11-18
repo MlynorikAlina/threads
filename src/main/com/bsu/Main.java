@@ -41,10 +41,10 @@ class ArrSort implements Runnable {
     public void run() {
         switch (order) {
             case SORT_BY_DIGITS_NUM_INCREASING:
-                array.sort((x, y) -> Integer.compare((int) Math.log10(x), (int) Math.log10(y)));
+                array.sort(Comparator.comparingInt(x -> x.toString().length()));
                 break;
             case SORT_BY_DIGITS_NUM_DECREASING:
-                array.sort((x, y) -> Integer.compare((int) Math.log10(y), (int) Math.log10(x)));
+                array.sort(Comparator.comparingInt(x -> x.toString().length()).reversed());
                 break;
             case SORT_BY_VALUE_DECREASING:
                 array.sort(Comparator.reverseOrder());
